@@ -1,0 +1,115 @@
+<h2 class="example-title">Thông tin đặt xe</h2>
+
+<div class="row">
+  <div class="col-md-12 ml-auto mr-auto">
+    <form #carOrderForm="ngForm" style="border: 1px solid #ccc; padding: 10px;">
+      <div class="form-group">
+        <label for="nameInput">Name</label>
+        <input type="text" class="form-control" id="nameInput" [(ngModel)]="formModel.fullName" name="fullName" placeholder="Enter name">
+      </div>
+      <div class="form-group">
+        <label for="emailInput">Email</label>
+        <input type="email" id="emailInput" class="form-control" placeholder="Enter email">
+      </div>
+      <div class="form-group">
+        <label for="phoneInput">Phone</label>
+        <input type="text" id="phoneInput" class="form-control" placeholder="Enter phone">
+      </div>
+      <div class="form-group">
+        <label for="addressInput">Address</label>
+        <input type="text" id="addressInput" class="form-control" placeholder="Enter address">
+      </div>
+      <div class="form-group margin-bottom-45">
+        <label for="startTimeInput">Khởi hành</label>
+        <span style="color: red;float: right;">* required</span>
+        <angular2-date-picker [(ngModel)]="formModel.startTime" [settings]="dateTimeSettings" name="startTime" id="startTimeInput"></angular2-date-picker>
+      </div>
+      <div class="form-group">
+        <select class="form-control">
+          <option value="" selected disabled>Chọn điểm đi</option>
+          <optgroup label="Picnic">
+            <option>Mustard</option>
+            <option>Ketchup</option>
+            <option>Relish</option>
+          </optgroup>
+          <optgroup label="Camping">
+            <option>Tent</option>
+            <option>Flashlight</option>
+            <option>Toilet Paper</option>
+          </optgroup>
+        </select>
+      </div>
+      <div class="form-group">
+        <select class="form-control">
+          <option value="" selected disabled>Chọn điểm đến</option>
+          <optgroup label="Picnic">
+            <option>Mustard</option>
+            <option>Ketchup</option>
+            <option>Relish</option>
+          </optgroup>
+          <optgroup label="Camping">
+            <option>Tent</option>
+            <option>Flashlight</option>
+            <option>Toilet Paper</option>
+          </optgroup>
+        </select>
+      </div>
+
+      <div *ngIf="formModel.isTwoWay">
+        <div class="form-group margin-bottom-45">
+          <label for="returnTimeInput">Quay về</label>
+          <span style="color: red;float: right;">* required</span>
+          <angular2-date-picker [(ngModel)]="formModel.returnTime" [settings]="dateTimeSettings" name="returnTime" id="returnTimeInput">
+          </angular2-date-picker>
+        </div>
+        <div class="form-group">
+          <select class="form-control">
+            <option value="" selected disabled>Chọn điểm đi</option>
+            <optgroup label="Picnic">
+              <option>Mustard</option>
+              <option>Ketchup</option>
+              <option>Relish</option>
+            </optgroup>
+            <optgroup label="Camping">
+              <option>Tent</option>
+              <option>Flashlight</option>
+              <option>Toilet Paper</option>
+            </optgroup>
+          </select>
+        </div>
+        <div class="form-group">
+          <select class="form-control">
+            <option value="" selected disabled>Chọn điểm đến</option>
+            <optgroup label="Picnic">
+              <option>Mustard</option>
+              <option>Ketchup</option>
+              <option>Relish</option>
+            </optgroup>
+            <optgroup label="Camping">
+              <option>Tent</option>
+              <option>Flashlight</option>
+              <option>Toilet Paper</option>
+            </optgroup>
+          </select>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="personCountInput">Số người (tính cả trẻ em)</label>
+        <input type="text" class="form-control" id="personCountInput" placeholder="Bạn đi bao nhiêu người?">
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="isTwoWay" [(ngModel)]="formModel.isTwoWay" name="isTwoWay">
+        <label class="form-check-label no-padding text-vertical-bottom" for="isTwoWay">2 chiều</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="isFreePlaceInput" value="0">
+        <label class="form-check-label no-padding text-vertical-bottom" for="isFreePlaceInput">Địa điểm tự do</label>
+      </div>
+      <br/>
+      <button class="btn btn-primary col-md-2" (click)="goBack()">Go back</button>
+      <button class="btn btn-primary col-md-2">Reset</button>
+      <button class="btn btn-success col-md-2" (click)="onSubmit()" [disabled]="!carOrderForm.form.valid">Submit</button>
+    </form>
+  </div>
+</div>

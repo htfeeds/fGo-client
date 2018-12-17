@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  title = 'FGo';
+  routes = [
+    { linkName: 'Home', url: '' },
+    { linkName: 'News', url: 'news' },
+    { linkName: 'Contact', url: 'contact' },
+    { linkName: 'About', url: 'about' }
+  ];
 }

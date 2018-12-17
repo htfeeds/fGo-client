@@ -1,0 +1,18 @@
+<h2 class="example-title">Đặt Xe</h2>
+<div class="row">
+  <div class="col-md-12 ml-auto mr-auto">
+    <div class="card-group">
+      <div class="card mb-4" *ngFor="let car of cars">
+        <img class="card-img-top" src="{{ car.img }}" alt="{{ car.name | uppercase }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ car.name | uppercase }}</h5>
+          <p class="card-text">{{ car.room }}</p>
+          <a href="javascript:;" (click)="selectCar(car.id)" class="btn btn-primary">Đặt Xe</a>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">Hotline: {{ car.phone }}</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
